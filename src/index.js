@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux'; // ceate the gobalized state  1- createStore for 1 reducer. 2- combineReducers take more reducers and reducers define states
+import AllReducers from './Reducers/index'
 
+export let store = createStore(AllReducers);
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+        <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
