@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
     Signin : false,
     UserName : '',
+    User_Message : '',
 }
 
 
@@ -16,6 +17,12 @@ const Singin =(state = INITIAL_STATE , action)=>{
             ...state,
             UserName : state.UserName=action.data
 
+        }
+    }
+    if(action.type === 'USER_MESSAGE'){
+        return{
+            ...state,
+            User_Message : state.User_Message=action.data
         }
     }
     return state

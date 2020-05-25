@@ -10,3 +10,9 @@ export const userName = (name)=>{
         data :name
     }
 }
+export const User_Message = (info)=>{
+    return{
+        type : 'USER_MESSAGE',
+        data :info
+    }
+}

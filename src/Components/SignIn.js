@@ -17,16 +17,23 @@ const Signin = (props)=>{
       let userName= event.target.name.value
       let userEmail= event.target.email.value
       let userPassword= event.target.password.value
-      if(userEmail && userName && userPassword){
-        props.User_Name(userName)
-        props.Sign_in()
-      }
+      setTimeout(() => {
+        if(userEmail && userName && userPassword){
+            props.User_Name(userName)
+            props.Sign_in()
+          }
+      }, 2000);
 
     }
     return(
        <React.Fragment>
            <Header count_cart_color={badge_color}/>
            <div className='container'>
+        
+
+        {
+            props.Signin.Signin === false 
+            ? 
         <form onSubmit={Sign__in} method='post'>
             <div className="form-group">
               <label htmlFor="examplename">Name</label>
@@ -43,10 +50,6 @@ const Signin = (props)=>{
            </div>
            <button type="submit" className="btn btn-primary">Submit</button>
         </form>
-
-        {
-            props.Signin.Signin === false 
-            ? null
             : 
             <div className='alert alert-success mt-5' role="alert">
               <Link to='/' style={{ textDecoration: "none"}} className="nav-link text-success">
